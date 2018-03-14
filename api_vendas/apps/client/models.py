@@ -12,7 +12,7 @@ class Client(models.Model):
     email = models.EmailField('Email', blank=True)
 
     cpf = models.BigIntegerField('CPF', unique=True)
-    cnpj = models.BigIntegerField('CNPJ', unique=True, blank=True)
+    cnpj = models.FloatField('CNPJ', blank=True, null=True)
 
     criado = models.DateTimeField('Criado em:', auto_now_add=True)
     modificado = models.DateTimeField('Modificado em', auto_now=True)
