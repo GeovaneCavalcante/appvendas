@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 
-import { View, Text, TextInput, TouchableOpacity,StyleSheet, Alert, Button, StatusBar} from 'react-native';
+import { AppRegistry, View, Text, TextInput, TouchableOpacity,StyleSheet, Alert, Button, StatusBar} from 'react-native';
+  
 
-export default class LoginForm extends Component {
+export default class LoginForm extends React.Component {
+  
+  teste(){
+      console.log('aqui')
+  }  
+
   render() {
+  
     return (
       <View>
            <TextInput style = {styles.input} 
@@ -21,11 +28,7 @@ export default class LoginForm extends Component {
                 placeholder='Password' 
                 placeholderTextColor='#878080' 
                 secureTextEntry/>
-
-            <TouchableOpacity style={styles.buttonContainer} 
-                        >
-                <Text  style={styles.buttonText}>LOGIN</Text>
-            </TouchableOpacity> 
+          
       </View> 
     );
   }
