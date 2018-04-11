@@ -5,5 +5,5 @@ from .views import index
 
 urlpatterns = [
     url(r'^$', index),
-    url(r'^api_token_auth/', obtain_jwt_token),
+    url(r'api_token_auth/', obtain_jwt_token),
 ]

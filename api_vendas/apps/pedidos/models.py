@@ -18,4 +18,4 @@ class Pedidos(models.Model):
         verbose_name_plural = 'Pedidos'
 
     def __str__(self):
-        return self.id
+        return self.status

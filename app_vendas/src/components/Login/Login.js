@@ -41,7 +41,7 @@ export default class Login extends Component {
     formBody = formBody.join("&");
     var proceed = false;
 
-    fetch('http://geovanedevelop.pythonanywhere.com/api-token-auth/', {
+    fetch('http://geovanedevelop.pythonanywhere.com/api_token_auth/', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({
