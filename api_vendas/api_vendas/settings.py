@@ -53,6 +53,13 @@ CORS_ORIGIN_REGEX_WHITELIST = (
     'localhost:8000',
 )
 
+# Midicação do token
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER':
+    'apps.accounts.views.jwt_response_payload_handler',
+}
+
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
