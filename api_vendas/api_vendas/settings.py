@@ -31,6 +31,7 @@ INSTALLED_APPS = [
 
     #Librarys
     'rest_framework',
+    'corsheaders',
 
 
     #Apps
@@ -41,6 +42,16 @@ INSTALLED_APPS = [
     'apps.pedidos'
 
 ]
+
+# Configurate cors
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+)
+CORS_ORIGIN_REGEX_WHITELIST = (
+    'localhost:8000',
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -61,6 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'api_vendas.urls'
