@@ -24,7 +24,7 @@ export class GenericoProvider {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
-      this.http.post('http://www.dbelissima.com.br/api/login', JSON.stringify(credentials), { headers: headers })
+      this.http.post('http://geovanedevelop.pythonanywhere.com/api_token_auth', JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           console.log(res)
         }, (err) => {
