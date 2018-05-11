@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'page-home',
@@ -7,8 +9,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(
+    public navCtrl: NavController,
+    public menuCtrl: MenuController,
+    public storage: Storage
+  ) 
+  {
+    this.menuCtrl.enable(true); 
+    this.storage.get('user').then((data) => console.log(data))
   }
 
 }

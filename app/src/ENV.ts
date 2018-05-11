@@ -1,4 +1,4 @@
 export const ENV = {
-    apiUrl: 'http://www.ipsemb.ma.gov.br/',
+    apiUrl: 'http://geovanedevelop.pythonanywhere.com/',
      //apiUrl: 'http://localhost:8000/',
 }

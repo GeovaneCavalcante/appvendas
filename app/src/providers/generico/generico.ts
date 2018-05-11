@@ -1,6 +1,6 @@
+import { ENV } from './../../ENV';
 import { HttpClient } from '@angular/common/http';;
 import { Injectable } from '@angular/core';
-import { ENV } from '../../ENV';
 import { Storage } from '@ionic/storage';
 
 @Injectable()
@@ -18,15 +18,14 @@ export class GenericoProvider {
  
   login(credentials) {
 
-    return this.http.post('http://geovanedevelop.pythonanywhere.com/api_token_auth/', credentials)
+    return this.http.post(ENV.apiUrl + 'api_token_auth/', credentials)
     .toPromise()
     .then(data => {
       this.setToken(data)
       return data
     })
-    .catch(e => {
-        console.log('login error 1', e)
-        return {"login": "false", "e": e}
+    .catch(error => {
+      return error
     });
   } 
 
