@@ -172,3 +172,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+MEDIA_ROOT = BASE_DIR + '/media'
+
+MEDIA_URL = '/media/'

@@ -1,5 +1,8 @@
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
@@ -10,6 +13,7 @@ urlpatterns = [
     url(r'^api_categoria/', include('apps.categoria.urls_api')),
     url(r'^api_produtos/', include('apps.produtos.urls_api')),
     url(r'^api_pedidos/', include('apps.pedidos.urls_api'))
-]
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = "Aplicação Vendas"
