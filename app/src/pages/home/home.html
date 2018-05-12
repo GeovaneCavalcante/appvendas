@@ -1,18 +1,46 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content class="content">
+  <br><br>
+  <h1 class="title">BEM VINDO</h1>
+  <h4 class="subtitle"><strong >VENDAS</strong></h4>
+  <br><br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="cliente">
+            <ion-icon  name="ios-people"></ion-icon>
+            <p>Clientes</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="pedidos">
+            <ion-icon  name="md-cart"></ion-icon>
+            <p>Pedidos</p>
+        </div>
+      </ion-col>
+      
+    </ion-row>
+   <ion-row>
+     <ion-col >
+        <div style="border-top: white 1px solid; margin-right: 20px; margin-left: 20px;"></div>
+     </ion-col>
+     <ion-col >
+        <div style="border-top: white 1px solid; margin-left: 20px; margin-right: 20px; "></div>
+     </ion-col>
+   </ion-row>
+   <br>
+    <ion-row>
+      <ion-col class="teste">
+        <div class="produtos" (click)="pageProdutos()">
+            <ion-icon name="basket"></ion-icon>
+            <p>Produtos</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="exit" (click)="exit()">
+            <ion-icon name="ios-exit"></ion-icon>
+            <p>Sair</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

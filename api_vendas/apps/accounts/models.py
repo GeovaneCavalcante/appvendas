@@ -11,7 +11,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('E-mail', unique=True)
     phone = models.CharField('Telefone', max_length=100, unique=True, blank=True, null=True)
     photo = models.ImageField('Foto', blank=True, upload_to='photo', null=True)
-    is_staff = models.BooleanField('Equipe', default=False)
+    is_staff = models.BooleanField('Equipe', default=True)
     is_active = models.BooleanField('Ativo', default=True)
     date_joined = models.DateTimeField('Data de Entrada', auto_now_add=True)
     date_update = models.DateTimeField('Data e hora da ultima atualização', blank=True, null=True)

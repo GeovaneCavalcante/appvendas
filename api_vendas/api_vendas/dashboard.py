@@ -11,15 +11,6 @@ class CustomIndexDashboard(Dashboard):
     def init_with_context(self, context):
 
         self.children.append(modules.AppList(
-            _('Administration'),
-            models=('auth.*',),
-            column=0,
-            order=0,
-            deletable=False,
-            draggable=False
-        ))
-
-        self.children.append(modules.AppList(
             _('Aplicações'),
             exclude=('auth.*',),
             column=0,
@@ -28,15 +19,13 @@ class CustomIndexDashboard(Dashboard):
             draggable=False
         ))
 
-        self.children.append(modules.RecentActions(
-            _('Ações recentes'),
-            10,
-            deletable=False,
-            draggable=False,
-            collapsible=False,
+        self.children.append(modules.AppList(
+            _('Administration'),
+            models=('auth.*',),
             column=1,
             order=0,
-
+            deletable=False,
+            draggable=False
         ))
 
 

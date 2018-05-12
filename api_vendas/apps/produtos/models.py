@@ -10,7 +10,7 @@ class Produtos(models.Model):
     valor = models.FloatField('Valor')
     quantidade = models.IntegerField('Quantidade')
     categoria = models.ForeignKey(Categoria)
-
+    foto = models.ImageField('Foto', upload_to='upload', blank=True)
     
     class Meta:
         verbose_name = 'Produto'
