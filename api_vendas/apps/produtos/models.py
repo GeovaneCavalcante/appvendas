@@ -6,7 +6,7 @@ from apps.categoria.models import Categoria
 class Produtos(models.Model):
     
     nome = models.CharField('Nome', max_length=30)
-    descricao = models.CharField('Descrição', max_length=30, blank=True)
+    descricao = models.TextField('Descrição')
     valor = models.FloatField('Valor')
     quantidade = models.IntegerField('Quantidade')
     categoria = models.ForeignKey(Categoria)

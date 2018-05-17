@@ -13,10 +13,10 @@ page-product-list {
         border-radius: 5px;
     }
     .item-md ion-avatar img {
-        border-radius: 50%;
+        border-radius: 100% ;
         overflow: hidden;
         width: 60px;
-        height: 60px;
+        height: 40px;
     }
     .item-md h2 {
         font-weight: 900;
@@ -31,4 +31,5 @@ page-product-list {
         color: #7b2ee8;
         font-size: 18px;
     }
+   
 }

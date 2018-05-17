@@ -1,3 +1,4 @@
+import { ProductDatailPage } from './../pages/product-datail/product-datail';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -12,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GenericoProvider } from '../providers/generico/generico';
 import { ProductListPage } from '../pages/product-list/product-list';
+import { ProdutosProvider } from '../providers/produtos/produtos';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ProductListPage } from '../pages/product-list/product-list';
     HomePage,
     ListPage,
     LoginPage,
-    ProductListPage
+    ProductListPage,
+    ProductDatailPage
   ],
   imports: [
     BrowserModule,
@@ -33,13 +36,15 @@ import { ProductListPage } from '../pages/product-list/product-list';
     HomePage,
     ListPage,
     LoginPage,
-    ProductListPage
+    ProductListPage,
+    ProductDatailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GenericoProvider
+    GenericoProvider,
+    ProdutosProvider
   ]
 })
 export class AppModule {}

@@ -1,0 +1,41 @@
+
+<ion-header>
+
+  <ion-navbar color="roxo">
+    <ion-title>{{ produto.nome }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-row>
+        <img [src]="produto.foto" class="foto">
+    </ion-row>
+<div class="content-div">
+   <ion-row>
+     <ion-col>
+        <h1 class="badge">{{produto.nome}}</h1>
+     </ion-col>
+     <ion-col>
+        <span class="price" text-right>{{produto.valor | currency:'BRL'}}</span>
+     </ion-col>
+    </ion-row>
+    <div class="description">
+      <ion-row > 
+          <ion-col>
+            <h1>Quantidade</h1>
+          </ion-col>
+          <ion-col>
+              <ion-badge color="roxo" item-end class="valor"> {{produto.quantidade}} UN</ion-badge>
+           
+        </ion-col>
+      </ion-row>
+      <ion-row > 
+          <ion-col>
+            <h1>Descrição</h1>
+            <p>{{ produto.descricao }}</p>
+          </ion-col>
+      </ion-row>
+    </div>
+</div>
+</ion-content>
