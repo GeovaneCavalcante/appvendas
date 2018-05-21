@@ -38,9 +38,25 @@ export class ProductListPage {
     })
   }
 
+  filterCategoria(id){
+    this.presentLoading()
+    this.storage.get('token').then((token) =>{
+      this.getProdutoCategoria(token, id)
+    })
+  }
+
+  getProdutoCategoria(token, id){
+    this.produtosProvider.getProdutosCategoria(token, id).then(data =>{
+      this.produtos = data
+      this.formatNome()
+      this.loading.dismiss();
+    })
+  }
+
   getProduto(token){
     this.produtosProvider.getProdutos(token).then(data =>{
       this.produtos = data
+      console.log(data)
       this.formatNome()
       this.loading.dismiss();
     })

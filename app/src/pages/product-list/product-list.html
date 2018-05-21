@@ -5,8 +5,8 @@
   </ion-navbar>
   <ion-item style="border-radius: 0px;">
       <ion-label>Categoria</ion-label>
-      <ion-select [(ngModel)]="gender">
-          <ion-option value="all">Todas</ion-option>
+      <ion-select [(ngModel)]="gender" #categoria (ionChange)="filterCategoria(categoria._value)">
+        <ion-option value="all">Todas</ion-option>
         <ion-option value="{{categoria.id}}" *ngFor="let categoria of categorias">{{categoria.nome}}</ion-option>
       </ion-select>
   </ion-item>

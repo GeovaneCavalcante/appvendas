@@ -30,6 +30,21 @@ export class ProdutosProvider {
     });
   } 
 
+  getProdutosCategoria(token, id) {
+    
+    let headers = new HttpHeaders()
+    .set("Authorization", "JWT " + token)
+
+    return this.http.get(ENV.apiUrl + 'api_produtos/categoria/' + id + '/', {headers: headers})
+    .toPromise()
+    .then(data => {
+      return data
+    })
+    .catch(error => {
+      return error
+    });
+  } 
+
   getCategoria(token) {
     
     let headers = new HttpHeaders()
