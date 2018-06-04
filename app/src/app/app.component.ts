@@ -28,7 +28,6 @@ export class MyApp {
   }
 
   verificacao(){
-    
     this.storage.get('token').then((val)=> {
       
       if(val){

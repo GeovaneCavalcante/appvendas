@@ -1,9 +1,12 @@
+import { ClientDetailPage } from './../pages/client-detail/client-detail';
+import { ClientListPage } from './../pages/client-list/client-list';
 import { ProductDatailPage } from './../pages/product-datail/product-datail';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -14,6 +17,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GenericoProvider } from '../providers/generico/generico';
 import { ProductListPage } from '../pages/product-list/product-list';
 import { ProdutosProvider } from '../providers/produtos/produtos';
+import { ClientesProvider } from '../providers/clientes/clientes';
+import { ClientCreatePage } from '../pages/client-create/client-create';
+import { CidadeEstadoProvider } from '../providers/cidade-estado/cidade-estado';
 
 @NgModule({
   declarations: [
@@ -22,13 +28,17 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
     ListPage,
     LoginPage,
     ProductListPage,
-    ProductDatailPage
+    ProductDatailPage,
+    ClientListPage,
+    ClientDetailPage,
+    ClientCreatePage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
+    BrMaskerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,14 +47,20 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
     ListPage,
     LoginPage,
     ProductListPage,
-    ProductDatailPage
+    ProductDatailPage,
+    ClientListPage,
+    ClientDetailPage,
+    ClientCreatePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GenericoProvider,
-    ProdutosProvider
+    ProdutosProvider,
+    ClientesProvider,
+    CidadeEstadoProvider,
+
   ]
 })
 export class AppModule {}

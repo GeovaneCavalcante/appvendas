@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar  color="roxo">
+    <ion-title><ion-icon name="ios-contact"></ion-icon> Detalhe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="line">
+    <ion-item-divider color="light" text-center><b >Dados</b></ion-item-divider>
+    <ion-item>
+        Nome:
+        <button  ion-button outline item-end icon-left color="danger">
+            {{cliente.name}}
+        </button>
+       
+    </ion-item>
+  <ion-item>
+    CPF:
+    <button ion-button outline item-end icon-left>
+        {{ cliente.cpf }}
+    </button>
+  </ion-item>
+  <ion-item>
+    CNPJ:
+    <button ion-button outline item-end icon-left>
+        {{cliente.cnpj}}
+    </button>
+  </ion-item>
+  <ion-item-divider color="light" text-center><b>Contatos</b></ion-item-divider>
+  <ion-item>
+    Email:
+    <button  ion-button outline item-end icon-left >
+        {{cliente.email}}
+    </button>
+   
+  </ion-item>
+  <ion-item>
+    Telefone:
+    <button  ion-button outline item-end icon-left>
+        {{cliente.telefone}}
+    </button>
+    
+  </ion-item>
+  <ion-item-divider color="light" text-center><b>Endereço</b></ion-item-divider>
+  <ion-item>
+    Estado
+    <button  ion-button outline item-end icon-left>
+        {{cliente.estado}}
+    </button> 
+  </ion-item>
+  <ion-item>
+    Cidade
+    <button  ion-button outline item-end icon-left>
+        {{cliente.cidade}}
+    </button> 
+  </ion-item>
+  <ion-item>
+   Endereço
+    <button  ion-button outline item-end icon-left>
+        {{cliente.endereco}}
+    </button> 
+  </ion-item>
+</ion-list>
+</ion-content>

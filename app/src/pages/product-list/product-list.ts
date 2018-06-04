@@ -41,7 +41,11 @@ export class ProductListPage {
   filterCategoria(id){
     this.presentLoading()
     this.storage.get('token').then((token) =>{
-      this.getProdutoCategoria(token, id)
+      if(id == 'all'){
+        this.getProduto(token)
+      }else{
+        this.getProdutoCategoria(token, id)
+      }
     })
   }
 

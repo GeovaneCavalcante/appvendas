@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar color="roxo">
+    <ion-title>  <ion-icon name="md-contacts"></ion-icon> Clientes</ion-title>
+  </ion-navbar>
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="filterOrders($event)"
+    (ionCancel)="onCancel($event)"
+  >
+  </ion-searchbar >
+  
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngIf="clientes.length == 0">
+
+    <ion-card-header text-center>
+      Nenhum cliente cadastrado!
+    </ion-card-header>
+  
+    <ion-card-content>
+      
+    </ion-card-content>
+  
+  </ion-card>
+  <ion-fab bottom right (click)="clienteCreate()">
+      <button ion-fab mini color="roxo"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <ion-list class="line" *ngFor="let cliente of clientes">
+    <button ion-item (click)="clienteDetail(cliente)">
+      Cliente: {{cliente.name}}
+      <p>CPF: {{cliente.cpf}}</p> 
+      <p>E-mail: {{cliente.email}}</p> 
+    </button>
+  </ion-list>
+</ion-content>

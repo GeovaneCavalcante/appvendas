@@ -1,3 +1,4 @@
+import { ClientListPage } from './../client-list/client-list';
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -25,6 +26,11 @@ export class HomePage {
   pageProdutos(){
     this.navCtrl.push(ProductListPage)
   }
+
+  pageClientes(){
+    this.navCtrl.push(ClientListPage)
+  }
+
 
   logout(){
     this.storage.remove('token').then(val => val)

@@ -43,7 +43,6 @@ local_settings.py
 collectstatic
 
 .idea
-
 development.py
 
 # Data postgres docker

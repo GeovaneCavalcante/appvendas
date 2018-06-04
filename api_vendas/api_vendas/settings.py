@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'apps.client',
     'apps.categoria',
     'apps.produtos',
-    'apps.pedidos'
+    'apps.pedidos',
+    'apps.core'
 
 ]
 
