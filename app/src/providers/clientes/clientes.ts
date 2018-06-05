@@ -44,8 +44,9 @@ export class ClientesProvider {
 
     let headers = new HttpHeaders()
     .set("Authorization", "JWT " + token)
+    console.log(token)
 
-    return this.http.put(ENV.apiUrl + 'api_client/' + id + '/', {headers: headers})
+    return this.http.put(ENV.apiUrl + 'api_client/' + id + '/', values, {headers: headers})
     .toPromise()
     .then(data => {
       return data
