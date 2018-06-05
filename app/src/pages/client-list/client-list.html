@@ -8,6 +8,7 @@
     [showCancelButton]="shouldShowCancel"
     (ionInput)="filterOrders($event)"
     (ionCancel)="onCancel($event)"
+    placeholder="Pesquisa"
   >
   </ion-searchbar >
   
@@ -30,9 +31,9 @@
       <button ion-fab mini color="roxo"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
   <ion-list class="line" *ngFor="let cliente of clientes">
-    <button ion-item (click)="clienteDetail(cliente)">
+    <button ion-item (click)="presentActionSheet(cliente)">
       Cliente: {{cliente.name}}
-      <p>CPF: {{cliente.cpf}}</p> 
+      <p>CPF: {{cliente.cpf | cpf}}</p> 
       <p>E-mail: {{cliente.email}}</p> 
     </button>
   </ion-list>

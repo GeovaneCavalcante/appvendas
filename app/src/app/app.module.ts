@@ -1,3 +1,6 @@
+import { ClientUpdatePage } from './../pages/client-update/client-update';
+import { CpfPipe } from './../pipes/cpf/cpf';
+import { PipesModule } from './../pipes/pipes.module';
 import { ClientDetailPage } from './../pages/client-detail/client-detail';
 import { ClientListPage } from './../pages/client-list/client-list';
 import { ProductDatailPage } from './../pages/product-datail/product-datail';
@@ -31,14 +34,17 @@ import { CidadeEstadoProvider } from '../providers/cidade-estado/cidade-estado';
     ProductDatailPage,
     ClientListPage,
     ClientDetailPage,
-    ClientCreatePage
+    ClientCreatePage,
+    ClientUpdatePage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
-    BrMaskerModule
+    BrMaskerModule,
+    PipesModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +56,8 @@ import { CidadeEstadoProvider } from '../providers/cidade-estado/cidade-estado';
     ProductDatailPage,
     ClientListPage,
     ClientDetailPage,
-    ClientCreatePage
+    ClientCreatePage,
+    ClientUpdatePage
   ],
   providers: [
     StatusBar,

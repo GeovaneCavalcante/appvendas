@@ -40,6 +40,21 @@ export class ClientesProvider {
     });
   } 
 
+  deleteCliente(id, token) {
+
+    let headers = new HttpHeaders()
+    .set("Authorization", "JWT " + token)
+
+    return this.http.delete(ENV.apiUrl + 'api_client/' + id + '/', {headers: headers})
+    .toPromise()
+    .then(data => {
+      return data
+    })
+    .catch(error => {
+      return error
+    });
+  } 
+
 
 
 }

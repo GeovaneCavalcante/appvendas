@@ -1,3 +1,5 @@
+import { ClientListPage } from './../client-list/client-list';
+import { ClientDetailPage } from './../client-detail/client-detail';
 import { ClientesProvider } from './../../providers/clientes/clientes';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
@@ -63,6 +65,9 @@ export class ClientCreatePage {
   createClientes(values, token){
     this.clientesProvider.createCliente(values, token).then(data =>{
       console.log(data)
+      this.loading.dismiss();
+      this.navCtrl.pop()
+      this.navCtrl.push(ClientListPage)
     })
   }
 

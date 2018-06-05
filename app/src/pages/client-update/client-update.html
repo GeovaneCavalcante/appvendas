@@ -1,0 +1,102 @@
+<!--
+  Generated template for the ClientCreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="roxo">
+      <ion-title> <ion-icon name="md-person-add"></ion-icon>  Novo Cliente</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+  
+  <form #form="ngForm" novalidate>
+    <ion-item-divider color="light" text-center><b >Dados</b></ion-item-divider>
+    <ion-item>
+      <ion-label  floating>Nome</ion-label>
+      <ion-input required type="text"  name="name"  ngModel></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label  floating>CPF</ion-label>
+      <ion-input required type="text"  name="cpf" [brmasker]="{mask:'000.000.000-00', len:14}" ngModel></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>CNPJ</ion-label>
+      <ion-input type="text"  name="cnpj" ngModel></ion-input>
+    </ion-item>
+    <br>
+    <ion-item-divider color="light" text-center><b >Contatos</b></ion-item-divider>
+    <ion-item>
+      <ion-label  floating>Telefone</ion-label>
+      <ion-input required type="text" name="telefone" ngModel [brmasker]="{phone: true}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="email"  name="email" ngModel></ion-input>
+    </ion-item>
+    <br>
+    <ion-item-divider color="light" text-center ><b >Endereço</b></ion-item-divider>
+    <ion-item>
+        <ion-label>Estado</ion-label>
+        <ion-select  #UFCliente ="ngModel" ngModel name="UFCliente" (ionChange)="getCidades($event)"   >
+            <ion-option value="AC|Acre">Acre</ion-option>
+            <ion-option value="AL|Alagoas">Alagoas</ion-option>
+            <ion-option value="AP|Amapá">Amapá</ion-option>
+            <ion-option value="AM|Amazonas">Amazonas</ion-option>
+            <ion-option value="BA|Bahia">Bahia</ion-option>
+            <ion-option value="CE|Distrito Federal">Distrito Federal</ion-option>
+            <ion-option value="DF|Ceará">Ceará</ion-option>
+            <ion-option value="ES|Espírito Santo">Espírito Santo</ion-option>
+            <ion-option value="GO|Goiás">Goiás</ion-option>
+            <ion-option value="MA|Maranhão">Maranhão</ion-option>
+            <ion-option value="MT|Mato Grosso">Mato Grosso</ion-option>
+            <ion-option value="MS|Mato Grosso do Sul">Mato Grosso do Sul</ion-option>
+            <ion-option value="MG|Minas Gerais">Minas Gerais</ion-option>
+            <ion-option value="PA|Pará">Pará</ion-option>
+            <ion-option value="PB|Paraíba">Paraíba</ion-option>
+            <ion-option value="PR|Paraná">Paraná</ion-option>
+            <ion-option value="PE|Pernambuco">Pernambuco</ion-option>
+            <ion-option value="PI|Piauí">Piauí</ion-option>
+            <ion-option value="RJ|Rio de Janeiro">Rio de Janeiro</ion-option>
+            <ion-option value="RN|Rio Grande do Norte">Rio Grande do Norte</ion-option>
+            <ion-option value="RS|Rio Grande do Sul">Rio Grande do Sul</ion-option>
+            <ion-option value="RO|Rondônia">Rondônia</ion-option>
+            <ion-option value="RR|Rondônia">Rondônia</ion-option>
+            <ion-option value="SC|Santa Catarina">Santa Catarina</ion-option>
+            <ion-option value="SP|São Paulo">São Paulo</ion-option>
+            <ion-option value="SE|Sergipe">Sergipe</ion-option>
+            <ion-option value="TO|Tocantins">Tocantins</ion-option>                
+        </ion-select>
+      </ion-item>
+      <ion-input type="hidden"  name="cidade" ngModel></ion-input>
+      <ion-item>
+        <ion-label >Cidade</ion-label>
+        <ion-select  [disabled]="disa" #cidade ="ngModel" ngModel  name="cidade" >
+          <ion-option *ngFor="let cidade of cidades" value="{{cidade['NomeCidade']}}">{{cidade['NomeCidade']}}</ion-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label floating>Endereço</ion-label>
+          <ion-textarea  ngModel name="endereco"></ion-textarea>
+      </ion-item>
+    
+  </form>
+  </ion-content>
+  <ion-footer>
+      <ion-toolbar>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button color="roxo" class="btn" (click)="validate(form.valid, form.value)">
+              Finalizar
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+  </ion-footer>
+  
