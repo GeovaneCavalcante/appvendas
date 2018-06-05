@@ -19,25 +19,25 @@
     <ion-item-divider color="light" text-center><b >Dados</b></ion-item-divider>
     <ion-item>
       <ion-label  floating>Nome</ion-label>
-      <ion-input required type="text"  name="name"  ngModel></ion-input>
+      <ion-input required type="text"  name="name" [(ngModel)]="cliente.name"  ngModel></ion-input>
     </ion-item>
     <ion-item>
       <ion-label  floating>CPF</ion-label>
-      <ion-input required type="text"  name="cpf" [brmasker]="{mask:'000.000.000-00', len:14}" ngModel></ion-input>
+      <ion-input required type="text"  [(ngModel)]="cliente.cpf" name="cpf" [brmasker]="{mask:'000.000.000-00', len:14}" ngModel></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>CNPJ</ion-label>
-      <ion-input type="text"  name="cnpj" ngModel></ion-input>
+      <ion-input type="text"  name="cnpj" [(ngModel)]="cliente.cnpj" ngModel></ion-input>
     </ion-item>
     <br>
     <ion-item-divider color="light" text-center><b >Contatos</b></ion-item-divider>
     <ion-item>
       <ion-label  floating>Telefone</ion-label>
-      <ion-input required type="text" name="telefone" ngModel [brmasker]="{phone: true}"></ion-input>
+      <ion-input required type="text" name="telefone" [(ngModel)]="cliente.telefone" ngModel [brmasker]="{phone: true}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>E-mail</ion-label>
-      <ion-input type="email"  name="email" ngModel></ion-input>
+      <ion-input type="email"  name="email" [(ngModel)]="cliente.email" ngModel></ion-input>
     </ion-item>
     <br>
     <ion-item-divider color="light" text-center ><b >Endereço</b></ion-item-divider>
@@ -83,7 +83,7 @@
   
       <ion-item>
           <ion-label floating>Endereço</ion-label>
-          <ion-textarea  ngModel name="endereco"></ion-textarea>
+          <ion-textarea [(ngModel)]="cliente.endereco"   ngModel name="endereco"></ion-textarea>
       </ion-item>
     
   </form>

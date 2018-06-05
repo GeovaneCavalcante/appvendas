@@ -49,6 +49,7 @@ export class ClientListPage {
           text: "Editar",
           icon: "brush",
           handler: () => {
+            this.navCtrl.pop()
             this.navCtrl.push(ClientUpdatePage, { cliente });
           }
         },

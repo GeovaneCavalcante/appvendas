@@ -39,6 +39,21 @@ export class ClientesProvider {
       return error
     });
   } 
+  
+  updateCliente(values, token, id) {
+
+    let headers = new HttpHeaders()
+    .set("Authorization", "JWT " + token)
+
+    return this.http.put(ENV.apiUrl + 'api_client/' + id + '/', {headers: headers})
+    .toPromise()
+    .then(data => {
+      return data
+    })
+    .catch(error => {
+      return error
+    });
+  } 
 
   deleteCliente(id, token) {
 
