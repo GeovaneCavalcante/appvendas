@@ -23,6 +23,10 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
 import { ClientesProvider } from '../providers/clientes/clientes';
 import { ClientCreatePage } from '../pages/client-create/client-create';
 import { CidadeEstadoProvider } from '../providers/cidade-estado/cidade-estado';
+import { PedidosCreatePage } from '../pages/pedidos-create/pedidos-create';
+import { PedidosListPage } from '../pages/pedidos-list/pedidos-list';
+import { PedidosDetailPage } from '../pages/pedidos-detail/pedidos-detail';
+import { PedidosUpdatePage } from '../pages/pedidos-update/pedidos-update';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { CidadeEstadoProvider } from '../providers/cidade-estado/cidade-estado';
     ClientListPage,
     ClientDetailPage,
     ClientCreatePage,
-    ClientUpdatePage
+    ClientUpdatePage,
+    PedidosCreatePage,
+    PedidosListPage,
+    PedidosDetailPage,
+    PedidosUpdatePage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +65,11 @@ import { CidadeEstadoProvider } from '../providers/cidade-estado/cidade-estado';
     ClientListPage,
     ClientDetailPage,
     ClientCreatePage,
-    ClientUpdatePage
+    ClientUpdatePage,
+    PedidosCreatePage,
+    PedidosListPage,
+    PedidosDetailPage,
+    PedidosUpdatePage
   ],
   providers: [
     StatusBar,
