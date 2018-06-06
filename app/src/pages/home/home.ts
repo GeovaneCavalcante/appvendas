@@ -6,6 +6,7 @@ import { LoginPage } from '../login/login';
 import { AlertController } from 'ionic-angular';
 
 import { ProductListPage } from '../product-list/product-list';
+import { PedidosListPage } from '../pedidos-list/pedidos-list';
 
 @Component({
   selector: 'page-home',
@@ -29,6 +30,10 @@ export class HomePage {
 
   pageClientes(){
     this.navCtrl.push(ClientListPage)
+  }
+
+  pagePedidos(){
+    this.navCtrl.push(PedidosListPage)
   }
 
 
