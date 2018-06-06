@@ -3,18 +3,25 @@
   <ion-navbar color="roxo">
     <ion-title>Pedidos</ion-title>
   </ion-navbar>
-
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="filterOrders($event)"
+    (ionCancel)="onCancel($event)"
+    placeholder="Pesquisa"
+  >
+  </ion-searchbar >
+  
 </ion-header>
 
 
 <ion-content class="bg">
-  <div class="list" *ngFor="let pedido of pedidos">
+  <div class="list" *ngFor="let pedido of pedidos" (click)="presentActionSheet(pedido)">
     <div class="icon_list">
       <ion-icon name="basket"></ion-icon>
     </div>
-    <span>Status</span>
+    <span>{{pedido.status.nome}}</span>
     <h1>Pedido Nº {{pedido.id}}</h1>
-    <p>Cliente: {{pedido.client}}</p>
-    <p>Cliente: {{pedido.client}}</p>
+    <p>Cliente: {{pedido.client.name}}</p>
   </div>
 </ion-content>
