@@ -9,7 +9,7 @@ class Pedidos(models.Model):
 
     client = models.ForeignKey(Client)
     status = models.ForeignKey(Status)
-    produtos =  models.ManyToManyField(Produtos)
+    produtos =  models.ManyToManyField(Produtos, related_name="produtos")
     criado = models.DateTimeField('Criado em:', auto_now_add=True)
     modificado = models.DateTimeField('Modificado em', auto_now=True)
     observacao = models.TextField('Observação', blank=True)
@@ -19,4 +19,4 @@ class Pedidos(models.Model):
         verbose_name_plural = 'Pedidos'
 
     def __str__(self):
-        return self.status
+        return "Pedido"

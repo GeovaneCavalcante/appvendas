@@ -27,6 +27,7 @@ import { PedidosCreatePage } from '../pages/pedidos-create/pedidos-create';
 import { PedidosListPage } from '../pages/pedidos-list/pedidos-list';
 import { PedidosDetailPage } from '../pages/pedidos-detail/pedidos-detail';
 import { PedidosUpdatePage } from '../pages/pedidos-update/pedidos-update';
+import { PedidosProvider } from '../providers/pedidos/pedidos';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { PedidosUpdatePage } from '../pages/pedidos-update/pedidos-update';
     ProdutosProvider,
     ClientesProvider,
     CidadeEstadoProvider,
+    PedidosProvider,
 
   ]
 })
