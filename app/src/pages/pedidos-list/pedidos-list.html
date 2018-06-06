@@ -8,52 +8,13 @@
 
 
 <ion-content class="bg">
-  <div class="list">
+  <div class="list" *ngFor="let pedido of pedidos">
     <div class="icon_list">
       <ion-icon name="basket"></ion-icon>
     </div>
     <span>Status</span>
-    <h1>Pedido Nº 01</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo voluptate....</p>
-  </div>
-  <div class="list">
-    <div class="icon_list">
-      <ion-icon name="basket"></ion-icon>
-    </div>
-    <span>Status</span>
-    <h1>Pedido Nº 01</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo voluptate....</p>
-  </div>
-  <div class="list">
-    <div class="icon_list">
-      <ion-icon name="basket"></ion-icon>
-    </div>
-    <span>Status</span>
-    <h1>Pedido Nº 01</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo voluptate....</p>
-  </div>
-  <div class="list">
-    <div class="icon_list">
-      <ion-icon name="basket"></ion-icon>
-    </div>
-    <span>Status</span>
-    <h1>Pedido Nº 01</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo voluptate....</p>
-  </div>
-  <div class="list">
-    <div class="icon_list">
-      <ion-icon name="basket"></ion-icon>
-    </div>
-    <span>Status</span>
-    <h1>Pedido Nº 01</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo voluptate....</p>
-  </div>
-  <div class="list">
-    <div class="icon_list">
-      <ion-icon name="basket"></ion-icon>
-    </div>
-    <span>Status</span>
-    <h1>Pedido Nº 01</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quo voluptate....</p>
+    <h1>Pedido Nº {{pedido.id}}</h1>
+    <p>Cliente: {{pedido.client}}</p>
+    <p>Cliente: {{pedido.client}}</p>
   </div>
 </ion-content>
