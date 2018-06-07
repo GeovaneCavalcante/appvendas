@@ -1,9 +1,11 @@
+import { PedidosCreatePage } from './../pedidos-create/pedidos-create';
 import { FormControl } from '@angular/forms';
 import { PedidosDetailPage } from './../pedidos-detail/pedidos-detail';
 import { PedidosProvider } from './../../providers/pedidos/pedidos';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ActionSheetController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ClientCreatePage } from '../client-create/client-create';
 
 
 @IonicPage()
@@ -75,7 +77,7 @@ export class PedidosListPage {
           }
         },
         {
-          text: "Detelar",
+          text: "Deletar",
           icon: "md-trash",
           handler: () => {
            
@@ -109,6 +111,10 @@ export class PedidosListPage {
         return item.client.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
     }
+  }
+
+  pedidosCreate(){
+    this.navCtrl.push(PedidosCreatePage)
   }
 
 }

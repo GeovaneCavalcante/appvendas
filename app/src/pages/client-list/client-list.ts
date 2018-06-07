@@ -54,7 +54,7 @@ export class ClientListPage {
           }
         },
         {
-          text: "Detelar",
+          text: "Deletar",
           icon: "md-trash",
           handler: () => {
             this.alertDelete(cliente)

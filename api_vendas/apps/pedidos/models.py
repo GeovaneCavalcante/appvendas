@@ -13,6 +13,7 @@ class Pedidos(models.Model):
     criado = models.DateTimeField('Criado em:', auto_now_add=True)
     modificado = models.DateTimeField('Modificado em', auto_now=True)
     observacao = models.TextField('Observação', blank=True)
+    valor_total = models.FloatField('Valor total', blank=True)
 
     class Meta:
         verbose_name = 'Pedido'
@@ -20,3 +21,17 @@ class Pedidos(models.Model):
 
     def __str__(self):
         return "Pedido"
+
+
+class PedidosItens(models.Model):
+
+    produto = models.ForeignKey(Produtos)
+    pedido = models.ForeignKey(Pedidos)
+    quantidade = models.IntegerField('Quantidade')
+
+    class Meta:
+        verbose_name = 'Pedido Iten'
+        verbose_name_plural = 'Pedidos Itens'
+
+    def __str__(self):
+        return "quantidade"

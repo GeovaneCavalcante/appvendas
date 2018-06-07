@@ -1,3 +1,4 @@
+import { ProductAddOrderPage } from './../pages/product-add-order/product-add-order';
 import { ClientUpdatePage } from './../pages/client-update/client-update';
 import { CpfPipe } from './../pipes/cpf/cpf';
 import { PipesModule } from './../pipes/pipes.module';
@@ -28,6 +29,7 @@ import { PedidosListPage } from '../pages/pedidos-list/pedidos-list';
 import { PedidosDetailPage } from '../pages/pedidos-detail/pedidos-detail';
 import { PedidosUpdatePage } from '../pages/pedidos-update/pedidos-update';
 import { PedidosProvider } from '../providers/pedidos/pedidos';
+import { ItemsProvider } from '../providers/items/items';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { PedidosProvider } from '../providers/pedidos/pedidos';
     PedidosCreatePage,
     PedidosListPage,
     PedidosDetailPage,
-    PedidosUpdatePage
+    PedidosUpdatePage,
+    ProductAddOrderPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { PedidosProvider } from '../providers/pedidos/pedidos';
     PedidosCreatePage,
     PedidosListPage,
     PedidosDetailPage,
-    PedidosUpdatePage
+    PedidosUpdatePage,
+    ProductAddOrderPage
   ],
   providers: [
     StatusBar,
@@ -81,6 +85,7 @@ import { PedidosProvider } from '../providers/pedidos/pedidos';
     ClientesProvider,
     CidadeEstadoProvider,
     PedidosProvider,
+    ItemsProvider
 
   ]
 })

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="roxo">
+    <ion-title>Adicionar Produto</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="primary" (click)="closeModal2()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterProducts($event)" [formControl]="searchControl" placeholder="Pesquisa"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of products">
+    <ion-card-header>
+      <ion-avatar item-start>
+            <img [src]="item.foto" width="100">
+      </ion-avatar>
+      <ion-item>
+        {{ item.nome }}
+      </ion-item>
+      <ion-input type="hidden"  #idProduto ="ngModel" [ngModel]="item.id"  name="id"></ion-input>
+      <ion-input type="hidden"  #valor = "ngModel" [ngModel]="item.valor"  name="valor"></ion-input>
+      <ion-input type="hidden"  #foto = "ngModel" [ngModel]="item.foto"  name="foto"></ion-input>
+      <ion-item>
+        <ion-label>Unidade</ion-label>
+        <ion-input type="number" value="1" #Qtde="ngModel"  name="Qtde" [ngModel]="1" ></ion-input>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <button ion-button (click)="closeModal(idProduto.value, valor.value, Qtde.value, foto.value, item.nome)">
+        Adicionar
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

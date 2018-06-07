@@ -16,6 +16,9 @@
 
 
 <ion-content class="bg">
+  <ion-fab bottom right (click)="pedidosCreate()">
+      <button ion-fab mini color="roxo"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
   <div class="list" *ngFor="let pedido of pedidos" (click)="presentActionSheet(pedido)">
     <div class="icon_list">
       <ion-icon name="basket"></ion-icon>
