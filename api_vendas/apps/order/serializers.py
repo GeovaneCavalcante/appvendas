@@ -4,8 +4,9 @@ from .models import Order, OrderItem
 from apps.produtos.models import Produtos
 
 
-
 class OrderItemSerializer(serializers.ModelSerializer):
+
+
     product_name = serializers.StringRelatedField(source='product')
     img = serializers.StringRelatedField(source='product.foto')
     total_products = serializers.SerializerMethodField()
@@ -19,6 +20,8 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
+
+    client = serializers.StringRelatedField(source='client.name')
     items = OrderItemSerializer(required=False, many=True)
             
     class Meta:

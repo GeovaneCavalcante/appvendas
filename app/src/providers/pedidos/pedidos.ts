@@ -16,7 +16,7 @@ export class PedidosProvider {
     let headers = new HttpHeaders()
     .set("Authorization", "JWT " + token)
 
-    return this.http.get(ENV.apiUrl + 'api_pedidos/', {headers: headers})
+    return this.http.get(ENV.apiUrl + 'api_order/list_orders/', {headers: headers})
     .toPromise()
     .then(data => {
       return data
