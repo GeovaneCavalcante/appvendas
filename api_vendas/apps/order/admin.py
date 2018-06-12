@@ -13,11 +13,16 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemAdmin,]
     list_display_links = ('return_order', 'user', 'client', 'status', 'created_at', 'update_at')
 
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        obj.save()
+        
     def return_order(self, obj):
         return 'Pedido #{}'.format(obj.pk)
 
     return_order.allow_tags = True
     return_order.short_description = 'Pedido'
+
 
 
 admin.site.register(Order, OrderAdmin)

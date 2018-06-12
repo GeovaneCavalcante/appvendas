@@ -37,3 +37,11 @@ class ListAllOrders(generics.ListAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
+
+class DeleteUpdateOrder(generics.RetrieveDestroyAPIView):
+    """
+    Delete and Update Order
+    """
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
