@@ -23,8 +23,10 @@
     <div class="icon_list">
       <ion-icon name="basket"></ion-icon>
     </div>
-    <span>{{pedido.status.nome}}</span>
+    <span *ngIf="pedido.status == 0">Em andamento</span>
+    <span *ngIf="pedido.status == 1">Concluído</span>
+    <span *ngIf="pedido.status == 2">Cancelado</span>
     <h1>Pedido Nº {{pedido.id}}</h1>
-    <p>Cliente: {{pedido.client.name}}</p>
+    <p>Cliente: {{pedido.client}}</p>
   </div>
 </ion-content>

@@ -20,16 +20,25 @@ export class PedidosDetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.pedido = this.navParams.get('pedido')
     this.formatNome()
+    console.log(this.pedido)
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PedidosDetailPage');
   }
+  
 
   formatNome(){
-    for(let a=0; this.pedido.produtos.length>a; a++){
-      this.pedido['produtos'][a]['nome_curto'] = this.doTruncarStr(this.pedido['produtos'][a]['nome'], 20)
+    let preco =  0
+    for(let a=0; this.pedido.items.length>a; a++){
+      
+      preco += Math.floor(this.pedido['items'][a]['price'])
+      if(this.pedido['items'][a]['img'].substring(0,4) != "http"){
+        this.pedido['items'][a]['img'] = "https://geovanedevelop.pythonanywhere.com/media/" + this.pedido['items'][a]['img']
+      }
+      this.pedido['items'][a]['nome_curto'] = this.doTruncarStr(this.pedido['items'][a]['product_name'], 20)
     }
+    this.pedido['total_compra'] = preco
   }
   doTruncarStr(str, size){
     if (str==undefined || str=='undefined' || str =='' || size==undefined || size=='undefined' || size ==''){
@@ -42,5 +51,6 @@ export class PedidosDetailPage {
     }
     return shortText;
   }  
+  
 
 }

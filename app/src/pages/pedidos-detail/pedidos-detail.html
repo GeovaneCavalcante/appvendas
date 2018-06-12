@@ -9,43 +9,47 @@
 
 <ion-content>
   <ion-list class="line">
-    <ion-item-divider color="light" text-center><b >Cliente</b></ion-item-divider>
-    <ion-item>
-        Nome:
-        <button  ion-button outline item-end icon-left color="danger">
-           {{pedido.client.name}}
-        </button>
-       
-    </ion-item>
-  <ion-item>
-    CPF:
-    <button ion-button outline item-end icon-left>
-        {{pedido.client.cpf}}
-    </button>
-  </ion-item>
+   
   <ion-item-divider color="light" text-center><b>Pedido</b></ion-item-divider>
   <ion-item>
-    Status:
-    <button  ion-button outline item-end icon-left >
-        {{pedido.status.nome}}
+    Nome:
+    <button  ion-button outline item-end icon-left color="danger">
+       {{pedido.client}}
     </button>
+   
+</ion-item>
+  <ion-item>
+    Status:
+    <button  *ngIf="pedido.status == 0" ion-button outline item-end icon-left >
+      Em andamento
+    </button>
+    <button  *ngIf="pedido.status == 1" ion-button outline item-end icon-left >
+      Concluído
+    </button>
+    <button  *ngIf="pedido.status == 2" ion-button outline item-end icon-left >
+      Cancelado
+    </button>
+  
    
   </ion-item>
   <ion-item>
     Observação:
     <p>
         {{pedido.observacao}}
+        {{pedido.total_compra}}
     </p>
   </ion-item>
   <ion-item-divider color="light" text-center><b>Produtos</b></ion-item-divider>
-  <ion-item *ngFor="let produto of pedido.produtos">
+  <ion-item *ngFor="let produto of pedido.items">
       <div (click)="produtoDetail(produto)">
           <ion-item>
             <ion-avatar item-start>
-              <img [src]="produto.foto" width="100">
+              <img [src]="produto.img" width="100">
             </ion-avatar>
             <h2>{{produto.nome_curto}}</h2>
-            <h3>{{produto.valor | currency:'BRL'}}</h3>
+            <h3>{{produto.quantity }} Unidades</h3>
+            <h3>{{produto.price * produto.quantity | currency:'BRL'}}</h3>
+            
           </ion-item>
       </div>
   </ion-item>
