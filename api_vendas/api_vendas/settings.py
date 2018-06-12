@@ -30,9 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #Librarys
+    #Libraries
     'rest_framework',
     'corsheaders',
+    'rest_framework_swagger',
 
 
     #Apps
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     'apps.client',
     'apps.categoria',
     'apps.produtos',
-    'apps.pedidos',
+    # 'apps.pedidos',
+    'apps.order',
     'apps.core'
 
 ]
