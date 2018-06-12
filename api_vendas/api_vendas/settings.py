@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'apps.categoria',
     'apps.produtos',
     # 'apps.pedidos',
-    'apps.order',
+    'apps.order.apps.OrderConfig',
     'apps.core'
 
 ]
