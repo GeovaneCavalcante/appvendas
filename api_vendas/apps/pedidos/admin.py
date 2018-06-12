@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Pedidos
+from .models import Pedidos, OrderItem
 
 
 class BasePedidos(admin.ModelAdmin):
@@ -10,4 +10,7 @@ class BasePedidos(admin.ModelAdmin):
     search_fields = ('client', 'status')
 
 
+
+
+admin.site.register(OrderItem)
 admin.site.register(Pedidos, BasePedidos)
