@@ -51,3 +51,22 @@ class OrderSerializer(serializers.ModelSerializer):
             OrderItem.objects.create(order=order, **items)
             
         return order
+
+    def update(self, instance, validated_data):
+        instance.status = validated_data.get('status', instance.status)
+        instance.client = validated_data.get('client', instance.client)
+        instance.obs = validated_data.get('obs', instance.obs)
+        instance.save()
+
+        items = validated_data.get('items')
+
+        if items:
+            for item in items:
+                item_id = item.get('id', None)
+                if item_id:
+                    inv_item = OrderItem.objects.get(id=item_id, order=instance)
+                    inv_item.save()
+                else:
+                    OrderItem.objects.create(order=instance, **item)
+
+        return instance
