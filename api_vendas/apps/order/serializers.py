@@ -7,7 +7,8 @@ from apps.produtos.models import Produtos
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
-
+    
+    id = serializers.IntegerField(required=False)
     product_name = serializers.StringRelatedField(source='product')
     img = serializers.StringRelatedField(source='product.foto')
     total_item = serializers.SerializerMethodField()
@@ -65,6 +66,9 @@ class OrderSerializer(serializers.ModelSerializer):
                 item_id = item.get('id', None)
                 if item_id:
                     inv_item = OrderItem.objects.get(id=item_id, order=instance)
+                    inv_item.quantity = item.get('quantity', inv_item.quantity)
+                    inv_item.price = item.get('price', inv_item.price)
+                    inv_item.product = item.get('product', inv_item.product)
                     inv_item.save()
                 else:
                     OrderItem.objects.create(order=instance, **item)
