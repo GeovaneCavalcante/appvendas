@@ -13,16 +13,8 @@
     <ion-item-divider color="light" text-center><b >Dados</b></ion-item-divider>
     <ion-item>
         <ion-label>Cliente</ion-label>
-        <ion-select #client ="ngModel" ngModel name="client" >
+        <ion-select #client ="ngModel" ngModel name="client" required>
             <ion-option value="{{cleinte.id}}" *ngFor="let cleinte of clientes">{{cleinte.name}}</ion-option>                
-        </ion-select>
-    </ion-item>
-    <ion-item>
-        <ion-label>Status</ion-label>
-        <ion-select  #status ="ngModel" ngModel name="status">
-            <ion-option value="0">Em andamento</ion-option>  
-            <ion-option value="1">Concluído</ion-option>  
-            <ion-option value="2">Cancelado</ion-option>                
         </ion-select>
     </ion-item>
     <ion-item>

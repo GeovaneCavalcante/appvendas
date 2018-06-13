@@ -41,5 +41,37 @@ export class PedidosProvider {
       return error
     });
   } 
+
+  updatePedido(token, dados) {
+    
+    let headers = new HttpHeaders()
+    .set("Authorization", "JWT " + token)
+    .set("Content-Type", "application/json")
+
+  return this.http.put(ENV.apiUrl + 'api_order/order/' + dados['id'] + '/', dados, {headers: headers})
+    .toPromise()
+    .then(data => {
+      return data
+    })
+    .catch(error => {
+      return error
+    });
+  } 
+  
+  deletePedido(token, id) {
+    
+    let headers = new HttpHeaders()
+    .set("Authorization", "JWT " + token)
+    .set("Content-Type", "application/json")
+
+  return this.http.delete(ENV.apiUrl + 'api_order/order/' + id + "/", {headers: headers})
+    .toPromise()
+    .then(data => {
+      return data
+    })
+    .catch(error => {
+      return error
+    });
+  } 
   
 }

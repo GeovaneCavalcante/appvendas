@@ -48,7 +48,7 @@ export class ClientCreatePage {
 
     if(!valido){
       this.presentToast(values)
-    }{
+    }else{
       if(values['UFCliente'] != ""){
         values['estado'] = values['UFCliente'].split("|")[1]
       }else{

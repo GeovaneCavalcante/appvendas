@@ -1,0 +1,4 @@
+ionic cordova build --release android
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore  ~/www/appvendas/app/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name
+
+zipalign -v 4 ~/www/appvendas/app/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk gesso.apk

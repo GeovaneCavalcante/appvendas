@@ -1,7 +1,8 @@
+import { PedidosListPage } from './../pedidos-list/pedidos-list';
 import { PedidosProvider } from './../../providers/pedidos/pedidos';
 import { ItemsProvider } from './../../providers/items/items';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { ProductAddOrderPage } from '../product-add-order/product-add-order';
 import { ClientesProvider } from '../../providers/clientes/clientes';
 import { Storage } from '@ionic/storage';
@@ -29,7 +30,9 @@ export class PedidosCreatePage {
     private clientesProvider: ClientesProvider,
     public loadingCtrl: LoadingController,
     public storage: Storage,
-    public pedidosProvider: PedidosProvider) {
+    public pedidosProvider: PedidosProvider,
+    public toastCtrl: ToastController,) {
+      this.itemsService.zera()
   }
 
   ionViewDidLoad() {
@@ -61,38 +64,67 @@ export class PedidosCreatePage {
     })
   }
 
-  validate(valid, values){
-    
-    let items  = []
-    let dados_json = {
-      "client": values['client'],
-      "obs": values['obs'],
-      "status": values['status'],
-      "total_order": values['total_order']
-    }
+  validate(valido, values){
+    if(!valido){
+      this.presentToast("cliente")
 
-    for(let a=0; this.itemsService.items.length > a; a++){
-      let dados = {
-        "product": this.itemsService.items[a]['id'],
-        "quantity": this.itemsService.items[a]['quantidade'],
-        "price": this.itemsService.items[a]['valor']
+    }else if(this.itemsService.items.length == 0){
+      this.presentToast("itens")
+    }else{
+
+      let items  = []
+      let dados_json = {
+        "client": values['client'],
+        "obs": values['obs'],
+        "status": values['status'],
+        "total_order": values['total_order']
       }
-      items[a] = dados
-    }
-   
-    dados_json['items']  = items
-    console.log(dados_json)
+
+      for(let a=0; this.itemsService.items.length > a; a++){
+        let dados = {
+          "product": this.itemsService.items[a]['id'],
+          "quantity": this.itemsService.items[a]['quantidade'],
+          "price": this.itemsService.items[a]['valor']
+        }
+        items[a] = dados
+      }
     
-    this.storage.get("token").then(data => {
-      this.createPedido(data, dados_json);
-    });
+      dados_json['items']  = items
+      console.log(dados_json)
+      
+      this.storage.get("token").then(data => {
+        this.createPedido(data, dados_json);
+      });
+    }
   }
 
+  presentToast(values) {
+    if(values == "cliente"){
+      let toast = this.toastCtrl.create({
+        message: "Campo Cliente é obrigatório",
+        duration: 3000,
+        position: 'top'
+      });
+      toast.onDidDismiss(() => {});
+      toast.present();
+    }else{
+      let toast = this.toastCtrl.create({
+        message: "Coloque pelo menos 1 produto no pedido",
+        duration: 3000,
+        position: 'top'
+      });
+      toast.onDidDismiss(() => {});
+      toast.present();
+    }
+   
+  }
+  
   createPedido(token, dados){
     this.presentLoading()
     this.pedidosProvider.createPedido(token,dados).then(data =>{
-      this.clientes = data
       this.loading.dismiss();
+      this.navCtrl.pop()
+      this.navCtrl.push(PedidosListPage)
     })
   }
   

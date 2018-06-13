@@ -1,3 +1,4 @@
+import { PedidosUpdatePage } from './../pedidos-update/pedidos-update';
 import { PedidosCreatePage } from './../pedidos-create/pedidos-create';
 import { FormControl } from '@angular/forms';
 import { PedidosDetailPage } from './../pedidos-detail/pedidos-detail';
@@ -27,7 +28,8 @@ export class PedidosListPage {
     public storage: Storage,
     public loadingCtrl: LoadingController,
     public actionSheetCtrl: ActionSheetController,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+   ) {
 
   }
 
@@ -37,6 +39,37 @@ export class PedidosListPage {
     })
   }
 
+  alertDelete(pedido) {
+    let prompt = this.alertCtrl.create({
+      title: 'Atenção!',
+      message: "Tem certeza que deseja remover o pedido?",
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Deletar',
+          handler: data => {
+            this.storage.get('token').then((token) =>{
+              this.deletePedido(token, pedido)
+            })
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  deletePedido(token, pedido){
+    this.presentLoading()
+    this.pedidos = this.pedidos.filter(item => item['id'] !== pedido['id'])
+    this.pedidosProvider.deletePedido(token, pedido['id']).then(data =>{
+      this.loading.dismiss();
+    })
+  }
 
   getPedidos(token){
     this.presentLoading()
@@ -73,6 +106,7 @@ export class PedidosListPage {
           icon: "brush",
           handler: () => {
             this.navCtrl.pop()
+            this.navCtrl.push(PedidosUpdatePage, { pedido });
            
           }
         },
@@ -80,7 +114,7 @@ export class PedidosListPage {
           text: "Deletar",
           icon: "md-trash",
           handler: () => {
-           
+           this.alertDelete(pedido)
           }
         },
         {
@@ -108,12 +142,13 @@ export class PedidosListPage {
 
     if (val && val.trim() != "") {
       this.pedidos = this.pedidos.filter(item => {
-        return item.client.toLowerCase().indexOf(val.toLowerCase()) > -1;
+        return item.client_name.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
     }
   }
 
   pedidosCreate(){
+    this.navCtrl.pop()
     this.navCtrl.push(PedidosCreatePage)
   }
 
