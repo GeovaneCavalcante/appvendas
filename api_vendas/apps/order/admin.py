@@ -9,13 +9,9 @@ class OrderItemAdmin(admin.StackedInline):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('return_order', 'user', 'client', 'status', 'created_at', 'update_at')
+    list_display = ('return_order', 'client', 'status', 'created_at', 'update_at')
     inlines = [OrderItemAdmin,]
-    list_display_links = ('return_order', 'user', 'client', 'status', 'created_at', 'update_at')
-
-    def save_model(self, request, obj, form, change):
-        obj.user = request.user
-        obj.save()
+    list_display_links = ('return_order', 'client', 'status', 'created_at', 'update_at')
         
     def return_order(self, obj):
         return 'Pedido #{}'.format(obj.pk)

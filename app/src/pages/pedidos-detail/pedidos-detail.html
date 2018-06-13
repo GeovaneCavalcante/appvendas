@@ -12,7 +12,7 @@
    
   <ion-item-divider color="light" text-center><b>Pedido</b></ion-item-divider>
   <ion-item>
-    Nome:
+    Cliente:
     <button  ion-button outline item-end icon-left color="danger">
        {{pedido.client}}
     </button>
@@ -29,14 +29,17 @@
     <button  *ngIf="pedido.status == 2" ion-button outline item-end icon-left >
       Cancelado
     </button>
-  
-   
+  </ion-item>
+  <ion-item>
+      Total pedido:
+      <button  ion-button outline item-end icon-left >
+          <h3>{{pedido.total_order | currency:'BRL'}}</h3>
+      </button>
   </ion-item>
   <ion-item>
     Observação:
     <p>
-        {{pedido.observacao}}
-        {{pedido.total_compra}}
+        {{pedido.obs}}
     </p>
   </ion-item>
   <ion-item-divider color="light" text-center><b>Produtos</b></ion-item-divider>

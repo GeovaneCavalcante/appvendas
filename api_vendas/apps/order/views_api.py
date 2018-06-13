@@ -38,7 +38,7 @@ class ListAllOrders(generics.ListAPIView):
     serializer_class = OrderSerializer
 
 
-class DeleteUpdateOrder(generics.RetrieveDestroyAPIView):
+class DeleteUpdateOrder(generics.RetrieveUpdateDestroyAPIView):
     """
     Delete and Update Order
     """

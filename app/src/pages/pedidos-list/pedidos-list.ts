@@ -108,7 +108,7 @@ export class PedidosListPage {
 
     if (val && val.trim() != "") {
       this.pedidos = this.pedidos.filter(item => {
-        return item.client.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
+        return item.client.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
     }
   }

@@ -58,4 +58,21 @@ export class PedidosCreatePage {
       this.loading.dismiss();
     })
   }
+
+  validate(valid, values){
+    
+    let items  = []
+    for(let a=0; this.itemsService.items.length > a; a++){
+      let dados = {
+        "product": this.itemsService.items[a]['id'],
+        "quantity": this.itemsService.items[a]['quantidade'],
+        "price": this.itemsService.items[a]['valor']
+      }
+      items[a] = dados
+    }
+   
+    values['items']  = items
+
+    console.log(values)
+  }
 }

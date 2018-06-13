@@ -11,7 +11,6 @@ class Order(models.Model):
         (2, 'Cancelada')
     )
 
-    user = models.ForeignKey(User, verbose_name='Usuário', editable=False)
     client = models.ForeignKey(Client, null=True)
     status = models.IntegerField('Status', choices=STATUS_CHOICES, default=0, blank=True)
     created_at = models.DateTimeField('Data da Criação', auto_now_add=True)
