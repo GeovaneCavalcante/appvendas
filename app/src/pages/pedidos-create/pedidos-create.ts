@@ -1,3 +1,4 @@
+import { PedidosProvider } from './../../providers/pedidos/pedidos';
 import { ItemsProvider } from './../../providers/items/items';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
@@ -27,7 +28,8 @@ export class PedidosCreatePage {
     public itemsService: ItemsProvider,
     private clientesProvider: ClientesProvider,
     public loadingCtrl: LoadingController,
-    public storage: Storage,) {
+    public storage: Storage,
+    public pedidosProvider: PedidosProvider) {
   }
 
   ionViewDidLoad() {
@@ -62,6 +64,13 @@ export class PedidosCreatePage {
   validate(valid, values){
     
     let items  = []
+    let dados_json = {
+      "client": values['client'],
+      "obs": values['obs'],
+      "status": values['status'],
+      "total_order": values['total_order']
+    }
+
     for(let a=0; this.itemsService.items.length > a; a++){
       let dados = {
         "product": this.itemsService.items[a]['id'],
@@ -71,8 +80,21 @@ export class PedidosCreatePage {
       items[a] = dados
     }
    
-    values['items']  = items
-
-    console.log(values)
+    dados_json['items']  = items
+    console.log(dados_json)
+    
+    this.storage.get("token").then(data => {
+      this.createPedido(data, dados_json);
+    });
   }
+
+  createPedido(token, dados){
+    this.presentLoading()
+    this.pedidosProvider.createPedido(token,dados).then(data =>{
+      this.clientes = data
+      this.loading.dismiss();
+    })
+  }
+  
 }
+

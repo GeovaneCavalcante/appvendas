@@ -47,4 +47,7 @@ class OrderSerializer(serializers.ModelSerializer):
         order = Order.objects.create(**validated_data)
         order.save()
 
+        for items in items_data:
+            OrderItem.objects.create(order=order, **items)
+            
         return order

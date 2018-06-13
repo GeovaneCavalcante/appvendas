@@ -25,5 +25,21 @@ export class PedidosProvider {
       return error
     });
   } 
+
+  createPedido(token, dados) {
+    
+    let headers = new HttpHeaders()
+    .set("Authorization", "JWT " + token)
+    .set("Content-Type", "application/json")
+
+  return this.http.post(ENV.apiUrl + 'api_order/order/', dados, {headers: headers})
+    .toPromise()
+    .then(data => {
+      return data
+    })
+    .catch(error => {
+      return error
+    });
+  } 
   
 }

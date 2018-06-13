@@ -13,7 +13,7 @@
     <ion-item-divider color="light" text-center><b >Dados</b></ion-item-divider>
     <ion-item>
         <ion-label>Cliente</ion-label>
-        <ion-select  #client ="ngModel" ngModel name="client" >
+        <ion-select #client ="ngModel" ngModel name="client" >
             <ion-option value="{{cleinte.id}}" *ngFor="let cleinte of clientes">{{cleinte.name}}</ion-option>                
         </ion-select>
     </ion-item>
