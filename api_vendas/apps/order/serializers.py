@@ -22,13 +22,13 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
 
-    client = serializers.StringRelatedField(source='client.name')
+    client_name = serializers.StringRelatedField(source='client.name')
     items = OrderItemSerializer(required=False, many=True)
     total_order = serializers.SerializerMethodField()
             
     class Meta:
         model = Order
-        fields = ['id', 'status', 'client', 'created_at', 'update_at', 'total_order', 'obs', 'items',]
+        fields = ['id', 'status', 'client', 'created_at', 'client_name', 'update_at', 'total_order', 'obs', 'items',]
 
     
     def get_total_order(self, obj):
